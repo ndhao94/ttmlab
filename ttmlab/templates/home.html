@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+			{% block content %}
+  				<h2>Welcome, {{ user.get_full_name }} <small>{{ user.username }}</small>!</h2>
+ 				 <p>Your email address: {{ user.email }}</p>
+		<div id="myElement">Loading the player ...</div>
+		<script type="text/javascript">
+			jwplayer("myElement").setup({
+				height: '30%',
+				// width: 360,
+				aspectratio: '16:9',
+      			displaytitle: true,
+      			//logo: false,
+      			// playlist: thisFeed.playlist,
+      			visualplaylist: true,
+      			width: '50%',
+
+
+				listbar: {
+					position: 'bottom',
+					size: 320
+				},
+
+				playlist: [
+
+					{
+						file: "rtmp://192.168.4.215:1935/vod/sample.mp4",
+						title: "Test Trailer 111"
+					}
+				]
+			});
+		</script>
+			{% endblock %}

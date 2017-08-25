@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <title>{% block title %}Simple is Better Than Complex{% endblock %}</title>
+        {% load static %}
+		<script type="text/javascript" src="{% static 'jwplayer/jwplayer.js' %}"></script>
+		<script>jwplayer.key="Hcs3tSvKr6TGjcerzlF95ogKiKayr4S6I2T71g=="</script>
+  </head>
+  <body>
+    <header>
+      <h1>My Site</h1>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">logout</a>
+      {% else %}
+        <a href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">signup</a>
+      {% endif %}
+      <hr>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>
